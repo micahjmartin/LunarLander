@@ -66,9 +66,9 @@ def print_packet(data, short=False):
         ret = ("Got a valid packet on channel {}:\n"
                "  octal: {}\tdecimal: {}\n"
                "  hex: {}\tascii: {}"
-        ).format(p, oct(d), d, hex(d), d.to_bytes(2, byteorder='big'))
+        ).format(p, oct(d), d, hex(d), (d).to_bytes(2, byteorder='big'))
         if short:
-            print(p, d, hex(d), (d << 1).to_bytes(2, byteorder='big'))
+            print(p, d, oct(d), hex(d), (d).to_bytes(2, byteorder='big'))
         else:
             print(ret)
 
@@ -80,16 +80,81 @@ def print_packet(data, short=False):
             return
         print("{}: {:}".format(E, data))
 
+def write_file_bits(outfile, words, word_size=15):
+    """Given a bunch of words of size X, write the data to a file
+    """
+    binary = ""
+    data = bytearray()
+    with open(outfile, 'wb') as fil:
+        while words:
+            word = words.pop(0)
+            binary += "{word:0{word_size}b}".format(word=word,word_size=word_size)
+            while len(binary) > 7:
+                bind = bytes((int(binary[:8], 2),))
+                fil.write(bind)
+                data += bind
+                binary = binary[8:]
+    while len(binary) > 7:
+        data.append(int(binary[:8], 2))
+        binary = binary[8:]
+    return data
+
+
 def make_sock(host="127.0.0.1"):
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
     s.connect((host, 19700))
     return s
 
-def main():
+
+def main2():
     sock = make_sock("192.168.177.195")
     while True:
         data = sock.recv(4)
-        print(data)
-        #print_packet(data, short=True)
+        print_packet(data, short=True)
 
-main()
+def main():
+    sock = make_sock("192.168.177.195")
+    words = []
+    store = 0
+
+    while True:
+        data = sock.recv(4)
+        try:
+            _, _, p, d = get_values(data)
+        except ValueError:
+            continue
+
+        # Wait for the trigger bits to start
+        # 3x 111 1111 1111 1111 on Channel 21
+        if p == 21 and d == 32767:
+            store += 1
+            print("Got another trigger bit", store)
+
+        # Wait for the end trigger bits
+        if p == 21 and d == 0:
+            # Subtract 1, but dont go below 0
+            store = max(0, store-1)
+            print("Got a NOGO trigger bit", store)
+
+        if store == 3:
+            print("Ok, now we are about to start getting some data")
+            break
+    
+    data = sock.recv(4)
+    try:
+        _, _, p, d = get_values(data)
+    except ValueError:
+        pass
+    while p == 20:
+        words += [d]
+        data = sock.recv(4)
+        try:
+            _, _, p, d = get_values(data)
+        except ValueError:
+            continue
+
+
+    filename = "output.bin"
+    write_file_bits(filename, words, 15)
+    print("Data written to", filename)
+main2()

@@ -1,67 +1,64 @@
-"""
-This file will generate an AGC4 assembly file to be compile by yaYUL
-
-http://www.ibiblio.org/apollo/DIY.html
-"""
 import string
-
-def genOctal(char):
-    """Convert a character into an octal representation"""
-    binary = "0{:b}0000000".format(ord(char))
-    return int(binary, 2)
+import random
 
 
-def getSymbol(char):
-    if char == "{":
-        return 'LB'
-    elif char == "}":
-        return 'RB'
-    elif char == "-":
-        return 'DASH'
+ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'  # or string.ascii_uppercase
+N = len(ALPHABET)
+ALPHABET_INDEX = {d: i for i, d in enumerate(ALPHABET, 1)}
+
+
+def getLabel(num):
+    ''' Converts any positive integer to Base26(letters only) with no 0th 
+    case. Useful for applications such as spreadsheet columns to determine which 
+    Letterset goes with a positive integer.
+    '''
+    if num < 0:
+        raise ValueError("Input should be a non-negative integer.")
+    elif num == 0:
+        return ""
     else:
-        return char.upper()+"\t"
+        q, r = divmod(num - 1, N)
+        return getLabel(q) + ALPHABET[r]
 
-def main22():
-    flag = "ritseC{did-u-use-oCtAL}"
-    letters = "AbCdefghijkLmnopQrstuWYz{}-"
 
-    symbols = []
-    # Build the symbol table
-    for sym in letters:
-        char = ord(sym)
-        sym = getSymbol(sym)
-        symbols.append("{}\t\t\tEQUALS\t{}".format(sym, char))
-        
-    symbols = "\n".join(symbols)
-    octal_ = []
-    for char in flag:
-        if char not in letters:
-            print("Invalid Character", char)
-            quit(1)
-        
-        octal_.append(getSymbol(char))
+def genNums(char):
+    """Protocol looks like this
+    00utpppp 01pppddd 10dddddd 11dddddd
 
-    lines = "\n".join(["            CA  {}".format(str(o)) for o in octal_])
-    with open("flags.agc.txt") as fil:
-        x = fil.read().replace("{{FLAGS}}", lines)
-        x = x.replace("{{SYMBOLS}}", symbols)
-        print(x)
-    #print(octal_)
+    p is a 7bit channel number
+    d is a 15 bit data segment
 
-def genSTORE(char):
-    stri = (
-        "            CA      CHR{0}\n"
-        "            TS      MEM{0}"
-    ).format(getSymbol(char))
-    return stri
+    by changing the P and D correctly, we can make the second byte into an ASCII char
+
+    This function will generate the needed P and D for a given character
+    """
+    # Do this so letters dont get duplicate values
+    dor = random.randrange(0, 512)
+    por = random.randrange(0, 15) << 3
+    char = ord(char)  # e.g. 0100 0001 for A
+    p = (char & 56) >> 3
+    p = p | por
+    d = (char & 7) << 12 # ddd 0000 0000 0000
+    d = d | dor
+    return p, d
 
 def main():
-    flag = "RITSEC{TEST}"
-    letters = string.ascii_uppercase + string.digits + "{}-"
-    for i in letters:
-        #print("MEM{}\t\tERASE".format(getSymbol(i)))
-        #octal = str(genOctal(i))
-        #asm_str = "CHAR{}\t\tEQUALS\t\t{}".format(getSymbol(i), octal)
-        print(genSTORE(i))
-        #print(asm_str)
+    flag = "RITSEC{The_stars_ArE_calling}"
+
+    consts = []
+    i = 27
+    for char in flag:
+        p, d = genNums(char)
+        # Convert P to octal
+        p = oct(p)[2:]
+        d = oct(d)[2:]
+        LBL = getLabel(i)
+        consts.append((LBL, d))
+        i += 1
+        print("            CAF\t\t{} # {}".format(LBL, char))
+        print("            EXTEND")
+        print("            WRITE\t{}".format(p))
+    print("            TCF STARTUP")
+    for lbl, val in consts:
+        print("{}          OCT\t{}".format(lbl, val))
 main()
