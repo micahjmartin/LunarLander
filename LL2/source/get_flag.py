@@ -89,7 +89,7 @@ def main():
     sock = make_sock("192.168.177.195")
     while True:
         data = sock.recv(4)
-        #print(data)
-        print_packet(data, short=True)
+        print(data)
+        #print_packet(data, short=True)
 
 main()
