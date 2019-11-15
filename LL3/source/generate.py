@@ -112,7 +112,7 @@ def main22():
 
 def main():
     # Get all the 15 bit words in the file
-    words = read_file_bits("../flag.zip")
+    words = read_file_bits("../stage1/flag.tgz")
 
     # For each word, generate a label and list of labels to be written
     labels = {}
@@ -125,11 +125,11 @@ def main():
         data.append(labels[word])
 
 
-    with open('second.asm') as file_:
+    with open('stage1.asm') as file_:
         template = Template(file_.read())
-    with open("second.agc", 'w') as fil:
+    with open("stage1.agc", 'w') as fil:
         fil.write(template.render(labels=labels, data=data))
-    print("AGC written to second.agc")
+    print("AGC written to stage1.agc")
     #data = write_file_bits("../backdoor2.zip", words)
     #print(data)
 #generate_first("RITSEC{HOUSTON_WE_G0T_EM}")
