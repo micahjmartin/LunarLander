@@ -1,0 +1,36 @@
+# useful building guide
+
+http://www.ibiblio.org/apollo/DIY.html#Bare-Metal_Programming
+
+
+# Opcodes
+
+www.ibiblio.org/apollo/assembly_language_manual.html#AGC4_Instruction_Set
+
+
+# Interesting article
+
+https://medium.com/@borja/a-glimpse-into-the-apollo-guidance-computer-8ee06e5e1a5c
+
+
+# THis is the binary of the compiled blank.agc
+
+1000 0000 0110 1110 0011 0000 0000 0000 0001 0000 0000 0100 0001 0000 0000 0110 0010 1111 1000 0010 0000 0000 0000 0000 0000 0000 0000
+  8   0    6    e     3    0   0    0     1    0    0    4   1    0    0     6   2    f    8    2     0
+
+
+TCF + 12b k = 10000  + K Octal
+001 000 000 000 000 110
+
+0000 0000 0000 000 1
+
+CS 40000 + k < Octal, K = 12 bits
+100 000 000 000 000 kkk kkk kkk kkk
+1000 0000 0000 000 k kkkk kkkk kkkX
+
+
+
+1100 0001 1000 1100 00100000000001000010000000001001111111100110100
+ 6     0    c    6
+
+ 

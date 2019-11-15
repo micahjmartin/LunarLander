@@ -1,0 +1,76 @@
+NEWJOB      EQUALS    67
+            SETLOC    4000
+STARTUP
+{{FLAG}}
+
+            # Come here at power-up or GOJAM
+            INHINT
+            CA        O37774
+            TS        TIME3
+            TCF       STARTUP    # Go to your "real" code.
+
+            RESUME    # T6RUPT
+            NOOP
+            NOOP
+            NOOP
+
+            RESUME    # T5RUPT
+            NOOP
+            NOOP
+            NOOP
+
+            DXCH      ARUPT       # T3RUPT
+            EXTEND                # Back up A, L, and Q registers
+            QXCH      QRUPT
+            TCF       T3RUPT
+
+            RESUME    # T4RUPT
+            NOOP
+            NOOP
+            NOOP
+
+            RESUME    # KEYRUPT1
+            NOOP
+            NOOP
+            NOOP
+
+            RESUME    # KEYRUPT2
+            NOOP
+            NOOP
+            NOOP
+
+            RESUME    # UPRUPT
+            NOOP
+            NOOP
+            NOOP
+
+            RESUME    # DOWNRUPT
+            NOOP
+            NOOP
+            NOOP
+
+            RESUME    # RADAR RUPT
+            NOOP
+            NOOP
+            NOOP
+
+            RESUME    # RUPT10
+            NOOP
+            NOOP
+            NOOP
+
+# The interrupt-service routine for the TIME3 interrupt every 40 ms. 
+T3RUPT      CAF     O37774      # Schedule another TIME3 interrupt in 40 ms.
+            TS      TIME3
+
+            # Tickle NEWJOB to keep Night Watchman GOJAMs from happening.
+            CS      NEWJOB
+
+            # And resume the main program
+            DXCH    ARUPT       # Restore A, L, and Q, and exit the interrupt
+            EXTEND
+            QXCH    QRUPT
+            RESUME       
+
+ALLDONE     CA      NEWJOB      # Tickle the Night Watchman
+            TCF     ALLDONE
