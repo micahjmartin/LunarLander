@@ -1,146 +1,146 @@
-            SETLOC    4000        # NOOP all the interupts
+            SETLOC    4000
             INHINT
             TCF       STARTUP
             NOOP
             NOOP
             NOOP
 
-            RESUME    # T6RUPT
+            RESUME
             NOOP
             NOOP
             NOOP
 
-            RESUME    # T5RUPT
+            RESUME
             NOOP
             NOOP
             NOOP
 
-            RESUME    # T3RUPT
+            RESUME
             NOOP
             NOOP
             NOOP
 
-            RESUME    # T4RUPT
+            RESUME
             NOOP
             NOOP
             NOOP
 
-            RESUME    # KEYRUPT1
+            RESUME
             NOOP
             NOOP
             NOOP
 
-            RESUME    # KEYRUPT2
+            RESUME
             NOOP
             NOOP
             NOOP
 
-            RESUME    # UPRUPT
+            RESUME
             NOOP
             NOOP
             NOOP
 
-            RESUME    # DOWNRUPT
+            RESUME
             NOOP
             NOOP
             NOOP
 
-            RESUME    # RADAR RUPT
+            RESUME
             NOOP
             NOOP
             NOOP
 
-            RESUME    # RUPT10
+            RESUME
             NOOP
             NOOP
             NOOP
        
 STARTUP
-            CAF		AA # R
+            CAF		AA
             EXTEND
             WRITE	162
-            CAF		AB # I
+            CAF		AB
             EXTEND
             WRITE	111
-            CAF		AC # T
+            CAF		AC
             EXTEND
             WRITE	102
-            CAF		AD # S
+            CAF		AD
             EXTEND
             WRITE	152
-            CAF		AE # E
+            CAF		AE
             EXTEND
             WRITE	0
-            CAF		AF # C
+            CAF		AF
             EXTEND
             WRITE	130
-            CAF		AG # {
+            CAF		AG
             EXTEND
             WRITE	17
-            CAF		AH # T
+            CAF		AH
             EXTEND
             WRITE	132
-            CAF		AI # h
+            CAF		AI
             EXTEND
             WRITE	65
-            CAF		AJ # e
+            CAF		AJ
             EXTEND
             WRITE	134
-            CAF		AK # _
+            CAF		AK
             EXTEND
             WRITE	133
-            CAF		AL # s
+            CAF		AL
             EXTEND
             WRITE	166
-            CAF		AM # t
+            CAF		AM
             EXTEND
             WRITE	106
-            CAF		AN # a
+            CAF		AN
             EXTEND
             WRITE	34
-            CAF		AO # r
+            CAF		AO
             EXTEND
             WRITE	66
-            CAF		AP # s
+            CAF		AP
             EXTEND
             WRITE	46
-            CAF		AQ # _
+            CAF		AQ
             EXTEND
             WRITE	153
-            CAF		AR # A
+            CAF		AR
             EXTEND
             WRITE	120
-            CAF		AS # r
+            CAF		AS
             EXTEND
             WRITE	46
-            CAF		AT # E
+            CAF		AT
             EXTEND
             WRITE	100
-            CAF		AU # _
+            CAF		AU
             EXTEND
             WRITE	103
-            CAF		AV # c
+            CAF		AV
             EXTEND
             WRITE	134
-            CAF		AW # a
+            CAF		AW
             EXTEND
             WRITE	34
-            CAF		AX # l
+            CAF		AX
             EXTEND
             WRITE	35
-            CAF		AY # l
+            CAF		AY
             EXTEND
             WRITE	55
-            CAF		AZ # i
+            CAF		AZ
             EXTEND
             WRITE	155
-            CAF		BA # n
+            CAF		BA
             EXTEND
             WRITE	135
-            CAF		BB # g
+            CAF		BB
             EXTEND
             WRITE	144
-            CAF		BC # }
+            CAF		BC
             EXTEND
             WRITE	147
             TCF STARTUP
