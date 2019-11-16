@@ -1,4 +1,7 @@
 FBANK       EQUALS      4
+# Store the bank numbers that are used{% for bankn, vals in banks.items() %}{% if vals %}
+BANK{{bankn | oct }}       EQUALS      {{bankn | oct }}{% endif %}{% endfor %}
+
             SETLOC    4000        # NOOP all the interupts
             TCF       LAUNCH
             NOOP
@@ -13,6 +16,7 @@ FBANK       EQUALS      4
        
 LAUNCH
             # Send a few all 1s to indicate the start
+            CA      
             CAF     MAXVAL
             EXTEND
             WRITE   25
@@ -34,7 +38,12 @@ LAUNCH
             WRITE   25
             TCF LAUNCH
 
-{% for val, label in labels.items() %}
-{{ label }}          DEC		{{ val }}{% endfor %}
 MAXVAL      OCT     77777
 MINVAL      OCT     00000
+
+
+
+{% for bankn, vals in banks.items() %}{% if vals %}
+BANK        {{ bankn | oct }}{% for label, val in vals %}
+{{ label }}          DEC		{{ val }}{% endfor %}
+{% endif %}{% endfor %}
