@@ -2,6 +2,7 @@
 Build a challenge
 """
 import random
+import string
 
 def LoadStars(fn="STAR_TABLES.agc"):
     """
@@ -56,20 +57,30 @@ def getStarDistances(stars):
     return distances
 
 def main():
+    # Charset is !"%'()*,-.013456789:;<>?@ABCDEFGHIJKLMNOQSUVWXYZ[\]_`abcdefghijklmnopqrstuvwxyz{|}~
     flag = "ritsec{leap_4_th3_stars}"
 
     stars = LoadStars()
     distances = getStarDistances(stars)
-    
-    fil = open("../distances.txt", "w")
+    charset = ""
+
+    # Validate the flag against the charset.
+    # Because we cant change the star numbers, we are only able to use certain characters
+    # Thankfully, most of them are within the given dataset
+    charset = "".join(sorted(chr(i) for i in distances if chr(i) in string.printable))    
     for char in flag:
         if ord(char) not in distances:
-            print("Missing distance for '{}'. Please try another character".format(char))
+            print("Missing distance for '{}'. Please try another character within the charset".format(char))
+            print("\tCharset: ",charset)
             quit(1)
-        
-        stars = random.choice(distances[ord(char)])
-        fil.write("Star {} => Star {}\n".format(*stars))
-    fil.close()
+
+    # Because many star pairs are the same approx distance
+    # the same flag can have many different output files
+    # This doesnt break anything
+    with open("../distances.txt", "w") as fil:
+        for char in flag:
+            stars = random.choice(distances[ord(char)])
+            fil.write("Star {} => Star {}\n".format(*stars))
     print("Distances written to 'distances.txt'")
 
 
