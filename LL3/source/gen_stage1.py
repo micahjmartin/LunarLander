@@ -3,14 +3,12 @@
 import random
 from jinja2 import Template, Environment, FileSystemLoader
 
-def octstr(i):
-    """Convert an integer to an octal string"""
-    o = oct(i)
-    return o.replace("0o", "")
 j2 = Environment(
     loader=FileSystemLoader("./")
 )
-j2.filters['oct'] = octstr
+
+j2.filters['oct'] = lambda i: oct(i).replace("0o", "")
+j2.filters['bank'] = lambda i: oct(i << 10).replace("0o", "")
 
 
 class Bank(object):
@@ -124,14 +122,14 @@ def read_words(filename, word_size=15):
 
 def main():
     # read our stage2 file
-    #filename = "stage2/flag.txt"
-    filename = "stage2/stage2.zip"
+    filename = "stage2/flag.txt"
+    #filename = "stage2/stage2.zip"
     words = read_words(filename)
 
     # Make a new storage bank
     #bank = Bank([4, 5])
     bank = Bank()
-    #bank.uniform = True
+    bank.uniform = False
 
     if bank.maxstorage >= len(words):
         print("We have enough space to store this file!!")
@@ -146,7 +144,7 @@ def main():
     
     template = j2.get_template("s1.asm")
     with open("s1.agc", 'w') as fil:
-        fil.write(template.render(labels=[], banks=bank.banks))
+        fil.write(template.render(labels=order, banks=bank.banks))
 
 
 

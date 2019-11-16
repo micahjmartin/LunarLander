@@ -157,4 +157,4 @@ def main():
     filename = "output.bin"
     write_file_bits(filename, words, 15)
     print("Data written to", filename)
-main2()
+main()

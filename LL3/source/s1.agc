@@ -1,35 +1,38 @@
+
 FBANK       EQUALS      4
+BANK2       EQUALS      4000
+
 # Store the bank numbers that are used
 BANK0       EQUALS      0
-BANK1       EQUALS      1
-BANK4       EQUALS      4
-BANK5       EQUALS      5
-BANK6       EQUALS      6
-BANK7       EQUALS      7
-BANK10       EQUALS      10
-BANK11       EQUALS      11
-BANK12       EQUALS      12
-BANK13       EQUALS      13
-BANK14       EQUALS      14
-BANK15       EQUALS      15
-BANK16       EQUALS      16
-BANK17       EQUALS      17
-BANK20       EQUALS      20
-BANK21       EQUALS      21
-BANK22       EQUALS      22
-BANK23       EQUALS      23
-BANK24       EQUALS      24
-BANK25       EQUALS      25
-BANK26       EQUALS      26
-BANK27       EQUALS      27
-BANK30       EQUALS      30
-BANK31       EQUALS      31
-BANK32       EQUALS      32
-BANK33       EQUALS      33
-BANK34       EQUALS      34
-BANK35       EQUALS      35
-BANK36       EQUALS      36
-BANK37       EQUALS      37
+BANK1       EQUALS      2000
+BANK4       EQUALS      10000
+BANK5       EQUALS      12000
+BANK6       EQUALS      14000
+BANK7       EQUALS      16000
+BANK10       EQUALS      20000
+BANK11       EQUALS      22000
+BANK12       EQUALS      24000
+BANK13       EQUALS      26000
+BANK14       EQUALS      30000
+BANK15       EQUALS      32000
+BANK16       EQUALS      34000
+BANK17       EQUALS      36000
+BANK20       EQUALS      40000
+BANK21       EQUALS      42000
+BANK22       EQUALS      44000
+BANK23       EQUALS      46000
+BANK24       EQUALS      50000
+BANK25       EQUALS      52000
+BANK26       EQUALS      54000
+BANK27       EQUALS      56000
+BANK30       EQUALS      60000
+BANK31       EQUALS      62000
+BANK32       EQUALS      64000
+BANK33       EQUALS      66000
+BANK34       EQUALS      70000
+BANK35       EQUALS      72000
+BANK36       EQUALS      74000
+BANK37       EQUALS      76000
 
             SETLOC    4000        # NOOP all the interupts
             TCF       LAUNCH
@@ -89,9 +92,11 @@ BANK37       EQUALS      37
 
        
 LAUNCH
+
             # Send a few all 1s to indicate the start
-            CA      
-            CAF     MAXVAL
+            CA      BANK2
+            TS      FBANK
+            CA     MAXVAL
             EXTEND
             WRITE   25
             EXTEND
@@ -99,7 +104,856 @@ LAUNCH
             EXTEND
             WRITE   25
             
+            
+            # Change to bank 0o16
+            CA      BANK16
+            TS      FBANK
 
+            CAF     AA   # BANK16
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o22
+            CA      BANK22
+            TS      FBANK
+
+            CAF     AB   # BANK22
+            EXTEND
+            WRITE   24
+            CAF     AC   # BANK22
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o37
+            CA      BANK37
+            TS      FBANK
+
+            CAF     AD   # BANK37
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o24
+            CA      BANK24
+            TS      FBANK
+
+            CAF     AE   # BANK24
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o1
+            CA      BANK1
+            TS      FBANK
+
+            CAF     AF   # BANK1
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o36
+            CA      BANK36
+            TS      FBANK
+
+            CAF     AG   # BANK36
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o17
+            CA      BANK17
+            TS      FBANK
+
+            CAF     AH   # BANK17
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o35
+            CA      BANK35
+            TS      FBANK
+
+            CAF     AI   # BANK35
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o30
+            CA      BANK30
+            TS      FBANK
+
+            CAF     AJ   # BANK30
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o35
+            CA      BANK35
+            TS      FBANK
+
+            CAF     AK   # BANK35
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o25
+            CA      BANK25
+            TS      FBANK
+
+            CAF     AL   # BANK25
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o35
+            CA      BANK35
+            TS      FBANK
+
+            CAF     AM   # BANK35
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o34
+            CA      BANK34
+            TS      FBANK
+
+            CAF     AN   # BANK34
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o5
+            CA      BANK5
+            TS      FBANK
+
+            CAF     AO   # BANK5
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o26
+            CA      BANK26
+            TS      FBANK
+
+            CAF     AP   # BANK26
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o0
+            CA      BANK0
+            TS      FBANK
+
+            CAF     AQ   # BANK0
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o6
+            CA      BANK6
+            TS      FBANK
+
+            CAF     AR   # BANK6
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o5
+            CA      BANK5
+            TS      FBANK
+
+            CAF     AS   # BANK5
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o31
+            CA      BANK31
+            TS      FBANK
+
+            CAF     AT   # BANK31
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o4
+            CA      BANK4
+            TS      FBANK
+
+            CAF     AU   # BANK4
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o32
+            CA      BANK32
+            TS      FBANK
+
+            CAF     AV   # BANK32
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o4
+            CA      BANK4
+            TS      FBANK
+
+            CAF     AW   # BANK4
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o17
+            CA      BANK17
+            TS      FBANK
+
+            CAF     AH   # BANK17
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o4
+            CA      BANK4
+            TS      FBANK
+
+            CAF     AX   # BANK4
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o1
+            CA      BANK1
+            TS      FBANK
+
+            CAF     AY   # BANK1
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o5
+            CA      BANK5
+            TS      FBANK
+
+            CAF     AZ   # BANK5
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o32
+            CA      BANK32
+            TS      FBANK
+
+            CAF     BA   # BANK32
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o11
+            CA      BANK11
+            TS      FBANK
+
+            CAF     BB   # BANK11
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o30
+            CA      BANK30
+            TS      FBANK
+
+            CAF     BC   # BANK30
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o14
+            CA      BANK14
+            TS      FBANK
+
+            CAF     BD   # BANK14
+            EXTEND
+            WRITE   24
+            CAF     BE   # BANK14
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o23
+            CA      BANK23
+            TS      FBANK
+
+            CAF     BF   # BANK23
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o30
+            CA      BANK30
+            TS      FBANK
+
+            CAF     BG   # BANK30
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o7
+            CA      BANK7
+            TS      FBANK
+
+            CAF     BH   # BANK7
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o12
+            CA      BANK12
+            TS      FBANK
+
+            CAF     BI   # BANK12
+            EXTEND
+            WRITE   24
+            CAF     BJ   # BANK12
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o16
+            CA      BANK16
+            TS      FBANK
+
+            CAF     BK   # BANK16
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o34
+            CA      BANK34
+            TS      FBANK
+
+            CAF     BL   # BANK34
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o33
+            CA      BANK33
+            TS      FBANK
+
+            CAF     BM   # BANK33
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o11
+            CA      BANK11
+            TS      FBANK
+
+            CAF     BN   # BANK11
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o22
+            CA      BANK22
+            TS      FBANK
+
+            CAF     AB   # BANK22
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o0
+            CA      BANK0
+            TS      FBANK
+
+            CAF     BO   # BANK0
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o24
+            CA      BANK24
+            TS      FBANK
+
+            CAF     BP   # BANK24
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o16
+            CA      BANK16
+            TS      FBANK
+
+            CAF     BQ   # BANK16
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o32
+            CA      BANK32
+            TS      FBANK
+
+            CAF     AV   # BANK32
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o7
+            CA      BANK7
+            TS      FBANK
+
+            CAF     BR   # BANK7
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o33
+            CA      BANK33
+            TS      FBANK
+
+            CAF     BM   # BANK33
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o11
+            CA      BANK11
+            TS      FBANK
+
+            CAF     BN   # BANK11
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o22
+            CA      BANK22
+            TS      FBANK
+
+            CAF     AB   # BANK22
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o17
+            CA      BANK17
+            TS      FBANK
+
+            CAF     BS   # BANK17
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o22
+            CA      BANK22
+            TS      FBANK
+
+            CAF     BT   # BANK22
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o27
+            CA      BANK27
+            TS      FBANK
+
+            CAF     BU   # BANK27
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o31
+            CA      BANK31
+            TS      FBANK
+
+            CAF     BV   # BANK31
+            EXTEND
+            WRITE   24
+            CAF     BW   # BANK31
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o30
+            CA      BANK30
+            TS      FBANK
+
+            CAF     BX   # BANK30
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o17
+            CA      BANK17
+            TS      FBANK
+
+            CAF     BY   # BANK17
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o37
+            CA      BANK37
+            TS      FBANK
+
+            CAF     BZ   # BANK37
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o25
+            CA      BANK25
+            TS      FBANK
+
+            CAF     CA   # BANK25
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o14
+            CA      BANK14
+            TS      FBANK
+
+            CAF     CB   # BANK14
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o16
+            CA      BANK16
+            TS      FBANK
+
+            CAF     BQ   # BANK16
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o32
+            CA      BANK32
+            TS      FBANK
+
+            CAF     AV   # BANK32
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o16
+            CA      BANK16
+            TS      FBANK
+
+            CAF     CC   # BANK16
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o4
+            CA      BANK4
+            TS      FBANK
+
+            CAF     CD   # BANK4
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o11
+            CA      BANK11
+            TS      FBANK
+
+            CAF     CE   # BANK11
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o6
+            CA      BANK6
+            TS      FBANK
+
+            CAF     CF   # BANK6
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o36
+            CA      BANK36
+            TS      FBANK
+
+            CAF     CG   # BANK36
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o31
+            CA      BANK31
+            TS      FBANK
+
+            CAF     AT   # BANK31
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o5
+            CA      BANK5
+            TS      FBANK
+
+            CAF     CH   # BANK5
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o13
+            CA      BANK13
+            TS      FBANK
+
+            CAF     CI   # BANK13
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o6
+            CA      BANK6
+            TS      FBANK
+
+            CAF     CJ   # BANK6
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o7
+            CA      BANK7
+            TS      FBANK
+
+            CAF     CK   # BANK7
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o34
+            CA      BANK34
+            TS      FBANK
+
+            CAF     CL   # BANK34
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o15
+            CA      BANK15
+            TS      FBANK
+
+            CAF     CM   # BANK15
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o22
+            CA      BANK22
+            TS      FBANK
+
+            CAF     CN   # BANK22
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o23
+            CA      BANK23
+            TS      FBANK
+
+            CAF     CO   # BANK23
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o26
+            CA      BANK26
+            TS      FBANK
+
+            CAF     CP   # BANK26
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o23
+            CA      BANK23
+            TS      FBANK
+
+            CAF     CQ   # BANK23
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o20
+            CA      BANK20
+            TS      FBANK
+
+            CAF     CR   # BANK20
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o30
+            CA      BANK30
+            TS      FBANK
+
+            CAF     CS   # BANK30
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o10
+            CA      BANK10
+            TS      FBANK
+
+            CAF     CT   # BANK10
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o33
+            CA      BANK33
+            TS      FBANK
+
+            CAF     CU   # BANK33
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o14
+            CA      BANK14
+            TS      FBANK
+
+            CAF     CV   # BANK14
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o25
+            CA      BANK25
+            TS      FBANK
+
+            CAF     CW   # BANK25
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o11
+            CA      BANK11
+            TS      FBANK
+
+            CAF     CX   # BANK11
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o36
+            CA      BANK36
+            TS      FBANK
+
+            CAF     CY   # BANK36
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o31
+            CA      BANK31
+            TS      FBANK
+
+            CAF     CZ   # BANK31
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o11
+            CA      BANK11
+            TS      FBANK
+
+            CAF     DA   # BANK11
+            EXTEND
+            WRITE   24
+            CAF     BN   # BANK11
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o14
+            CA      BANK14
+            TS      FBANK
+
+            CAF     DB   # BANK14
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o35
+            CA      BANK35
+            TS      FBANK
+
+            CAF     AK   # BANK35
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o23
+            CA      BANK23
+            TS      FBANK
+
+            CAF     DC   # BANK23
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o17
+            CA      BANK17
+            TS      FBANK
+
+            CAF     DD   # BANK17
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o23
+            CA      BANK23
+            TS      FBANK
+
+            CAF     DE   # BANK23
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o15
+            CA      BANK15
+            TS      FBANK
+
+            CAF     DF   # BANK15
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o25
+            CA      BANK25
+            TS      FBANK
+
+            CAF     DG   # BANK25
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o1
+            CA      BANK1
+            TS      FBANK
+
+            CAF     DH   # BANK1
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o26
+            CA      BANK26
+            TS      FBANK
+
+            CAF     DI   # BANK26
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o5
+            CA      BANK5
+            TS      FBANK
+
+            CAF     AS   # BANK5
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o12
+            CA      BANK12
+            TS      FBANK
+
+            CAF     DJ   # BANK12
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o4
+            CA      BANK4
+            TS      FBANK
+
+            CAF     AU   # BANK4
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o32
+            CA      BANK32
+            TS      FBANK
+
+            CAF     AV   # BANK32
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o36
+            CA      BANK36
+            TS      FBANK
+
+            CAF     AG   # BANK36
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o27
+            CA      BANK27
+            TS      FBANK
+
+            CAF     DK   # BANK27
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o5
+            CA      BANK5
+            TS      FBANK
+
+            CAF     DL   # BANK5
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o15
+            CA      BANK15
+            TS      FBANK
+
+            CAF     DM   # BANK15
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o35
+            CA      BANK35
+            TS      FBANK
+
+            CAF     DN   # BANK35
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o21
+            CA      BANK21
+            TS      FBANK
+
+            CAF     DO   # BANK21
+            EXTEND
+            WRITE   24
+            
+            # Change to bank 0o1
+            CA      BANK1
+            TS      FBANK
+
+            CAF     DP   # BANK1
+            EXTEND
+            WRITE   24
+
+            CA      BANK2
+            TS      FBANK
             CAF     MINVAL
             EXTEND
             WRITE   25
@@ -109,1986 +963,162 @@ LAUNCH
             WRITE   25
             TCF LAUNCH
 
-MAXVAL      OCT     77777
-MINVAL      OCT     00000
-
-
+BANK        2
+BANK
+MINVAL      DEC      0
+MAXVAL      OCT      77777
 
 
 BANK        0
-CQ          DEC		27773
-CU          DEC		7379
-EK          DEC		27326
-KI          DEC		10310
-LM          DEC		17962
-OJ          DEC		17987
-OQ          DEC		3542
-PK          DEC		16172
-QH          DEC		21631
-RD          DEC		18358
-RK          DEC		20948
-RX          DEC		13394
-TY          DEC		1700
-UV          DEC		17123
-WG          DEC		7679
-WP          DEC		8742
-WU          DEC		20111
-XU          DEC		28635
-YZ          DEC		14583
-ZE          DEC		23291
-ZV          DEC		25398
-AAA          DEC		9968
-AAV          DEC		5141
-ABB          DEC		23081
-ABD          DEC		18355
-ABV          DEC		24442
-ACM          DEC		20226
-AEO          DEC		14381
-AES          DEC		3212
-AEW          DEC		3544
-AGG          DEC		13396
-AGT          DEC		31171
-AHF          DEC		6797
-AJI          DEC		5500
-AJR          DEC		18791
-AKH          DEC		1962
-ANN          DEC		11201
-ANW          DEC		18275
-AOG          DEC		22979
-APC          DEC		27678
-API          DEC		17275
-APU          DEC		27496
-APZ          DEC		31039
-AQL          DEC		17242
-ARV          DEC		28188
-ASJ          DEC		24421
-ASL          DEC		15531
-ATE          DEC		14812
-AXR          DEC		23232
-AZH          DEC		1818
-AZL          DEC		3297
-BAU          DEC		29947
-BBD          DEC		29817
-BDO          DEC		23877
-BFE          DEC		9507
-BFS          DEC		25408
-BHK          DEC		2824
-BHU          DEC		12679
-BHV          DEC		32065
-BIW          DEC		14294
-BMF          DEC		28211
-BMM          DEC		12055
-BMP          DEC		15932
-BNM          DEC		25859
-BPX          DEC		24037
-BRB          DEC		17221
-BST          DEC		22870
-BSX          DEC		516
-BUJ          DEC		8200
-BVO          DEC		26794
+AQ          DEC		23272
+BO          DEC		17434
 
 BANK        1
-AS          DEC		26060
-EU          DEC		15191
-FB          DEC		15194
-GT          DEC		17164
-IF          DEC		28612
-JA          DEC		16617
-JJ          DEC		21522
-JO          DEC		19568
-KF          DEC		249
-LA          DEC		30222
-LK          DEC		9998
-LW          DEC		29907
-MK          DEC		19391
-PE          DEC		15931
-PP          DEC		23128
-PU          DEC		26279
-QL          DEC		12368
-QX          DEC		11412
-RI          DEC		10800
-RV          DEC		15161
-VO          DEC		11507
-XB          DEC		22350
-XI          DEC		19048
-XO          DEC		22221
-YR          DEC		7291
-YX          DEC		13678
-ZM          DEC		15642
-AAS          DEC		14076
-ABF          DEC		731
-ABY          DEC		13336
-ACK          DEC		8475
-ADO          DEC		27276
-AEC          DEC		13060
-AEY          DEC		25709
-AGN          DEC		20336
-AIL          DEC		31528
-AJZ          DEC		30416
-AMK          DEC		4344
-ASV          DEC		28952
-ATQ          DEC		7622
-AVI          DEC		26894
-AVL          DEC		15129
-AXP          DEC		25103
-AZU          DEC		15005
-BAM          DEC		7108
-BCA          DEC		23100
-BCI          DEC		1526
-BCV          DEC		30812
-BCY          DEC		3448
-BDN          DEC		13479
-BEW          DEC		15001
-BHD          DEC		9773
-BIL          DEC		29927
-BJJ          DEC		6123
-BNB          DEC		6029
-BNN          DEC		8073
-BOP          DEC		16310
-BOY          DEC		8470
-BPC          DEC		14266
-BPF          DEC		11936
-BPY          DEC		1128
-BQU          DEC		8375
-BRM          DEC		13448
-BRV          DEC		24468
-BSS          DEC		12617
+AF          DEC		31554
+AY          DEC		12148
+DH          DEC		20968
+DP          DEC		1326
 
 BANK        4
-BQ          DEC		25977
-BT          DEC		25906
-CS          DEC		11998
-DG          DEC		30114
-DJ          DEC		10678
-EI          DEC		11253
-HU          DEC		30427
-IR          DEC		456
-JG          DEC		1
-KS          DEC		16497
-LH          DEC		25258
-LQ          DEC		26446
-MQ          DEC		29133
-OA          DEC		9077
-OG          DEC		3491
-PQ          DEC		29609
-QB          DEC		8519
-SV          DEC		5403
-UK          DEC		13646
-UO          DEC		2330
-WY          DEC		18129
-YP          DEC		12251
-ZG          DEC		25013
-ACB          DEC		30233
-ACW          DEC		7393
-AEE          DEC		16534
-AET          DEC		20963
-AFH          DEC		4817
-AGU          DEC		28034
-AHJ          DEC		15249
-AIE          DEC		25637
-AIM          DEC		12879
-AKW          DEC		22595
-AKX          DEC		14053
-AQM          DEC		911
-ATD          DEC		31496
-AVV          DEC		17836
-AWG          DEC		20318
-AWH          DEC		29977
-AXC          DEC		22661
-BAA          DEC		6915
-BAN          DEC		29098
-BDH          DEC		3131
-BDJ          DEC		29061
-BEG          DEC		22360
-BEH          DEC		25054
-BES          DEC		32613
-BFC          DEC		25594
-BGD          DEC		28594
-BHW          DEC		7544
-BIQ          DEC		803
-BIZ          DEC		12427
-BMX          DEC		29078
-BNP          DEC		18170
-BNS          DEC		7835
-BPE          DEC		25584
-BPZ          DEC		5981
-BSE          DEC		9278
-BUD          DEC		7473
-BUM          DEC		15
-BUV          DEC		21840
+AU          DEC		1473
+AW          DEC		28577
+AX          DEC		23144
+CD          DEC		16080
 
 BANK        5
-BA          DEC		6667
-CV          DEC		18298
-CY          DEC		23280
-DI          DEC		32183
-GD          DEC		24407
-KK          DEC		27376
-KY          DEC		10902
-LR          DEC		6986
-MN          DEC		7249
-NF          DEC		30267
-OT          DEC		11493
-OY          DEC		27221
-PF          DEC		4606
-PY          DEC		12123
-QO          DEC		8145
-RO          DEC		13071
-RU          DEC		26873
-UJ          DEC		8774
-VQ          DEC		3030
-VR          DEC		25885
-ZR          DEC		29506
-AAM          DEC		31849
-ABA          DEC		7117
-ACE          DEC		24836
-AER          DEC		3283
-AGA          DEC		27921
-AJA          DEC		20158
-AJG          DEC		17505
-AJT          DEC		31750
-AKA          DEC		28056
-AKD          DEC		16923
-AKU          DEC		16792
-AMA          DEC		26139
-ANC          DEC		11151
-ANF          DEC		10276
-ANP          DEC		3989
-AOC          DEC		23879
-AOQ          DEC		11203
-APD          DEC		18327
-APK          DEC		22024
-ARP          DEC		18134
-ARW          DEC		10975
-ASZ          DEC		10815
-ATC          DEC		18318
-AVA          DEC		3707
-AVC          DEC		22025
-AYR          DEC		10294
-AYW          DEC		29246
-AZA          DEC		25359
-BCJ          DEC		26734
-BCW          DEC		13575
-BDF          DEC		15198
-BDP          DEC		7524
-BDQ          DEC		20028
-BDY          DEC		6460
-BGR          DEC		29151
-BHQ          DEC		14587
-BJX          DEC		4059
-BKD          DEC		9991
-BKE          DEC		18064
-BLB          DEC		15719
-BMC          DEC		18347
-BOB          DEC		9083
-BOM          DEC		21487
-BPW          DEC		4512
-BQW          DEC		26021
-BSO          DEC		18731
-BTX          DEC		160
-BVF          DEC		10255
+AO          DEC		929
+AS          DEC		5658
+AZ          DEC		12762
+CH          DEC		3198
+DL          DEC		26717
 
 BANK        6
-AN          DEC		1024
-BG          DEC		2
-EF          DEC		15709
-EW          DEC		21355
-FX          DEC		11903
-GH          DEC		16084
-JK          DEC		24672
-JU          DEC		512
-JV          DEC		2816
-NB          DEC		782
-PA          DEC		23337
-PM          DEC		22426
-QD          DEC		10631
-TW          DEC		20915
-UY          DEC		22110
-VD          DEC		21803
-VI          DEC		18091
-VW          DEC		15714
-WR          DEC		7820
-XJ          DEC		27925
-AAD          DEC		5940
-AHC          DEC		17787
-AHW          DEC		2868
-AHY          DEC		15961
-AIK          DEC		7749
-AJJ          DEC		16223
-AKB          DEC		3759
-AKR          DEC		12798
-ALJ          DEC		3509
-ALP          DEC		26031
-AMR          DEC		14935
-AMV          DEC		3861
-ASM          DEC		30288
-AUP          DEC		14983
-AUV          DEC		3869
-AXK          DEC		22401
-AYF          DEC		30547
-AYU          DEC		875
-AZD          DEC		28779
-AZJ          DEC		20670
-BAJ          DEC		29181
-BAO          DEC		5995
-BBG          DEC		22585
-BDG          DEC		1675
-BGA          DEC		25231
-BKX          DEC		3425
-BLP          DEC		6787
-BMK          DEC		23838
-BMT          DEC		6396
-BNI          DEC		8550
-BNO          DEC		8975
-BPT          DEC		21824
-BRF          DEC		12839
-BSM          DEC		1918
-BTJ          DEC		22722
-BUK          DEC		44
-BVC          DEC		9126
+AR          DEC		12020
+CF          DEC		11444
+CJ          DEC		8965
 
 BANK        7
-AG          DEC		6368
-BC          DEC		16472
-CD          DEC		18834
-DB          DEC		13325
-EX          DEC		31031
-IP          DEC		5096
-IX          DEC		23626
-JB          DEC		15759
-KX          DEC		27803
-LD          DEC		8712
-MC          DEC		13693
-OK          DEC		13978
-SM          DEC		24056
-VB          DEC		5444
-VX          DEC		20884
-YJ          DEC		19860
-ZY          DEC		12330
-AAE          DEC		5773
-ACZ          DEC		18528
-AEF          DEC		29068
-AFB          DEC		7619
-AGC          DEC		18228
-AHH          DEC		424
-AHX          DEC		24867
-AJH          DEC		23583
-ALL          DEC		13831
-AMQ          DEC		19240
-ARE          DEC		13730
-ATY          DEC		8654
-AUI          DEC		18972
-AUL          DEC		22740
-AVU          DEC		12042
-AWI          DEC		13727
-AWW          DEC		2741
-AXN          DEC		5461
-AZO          DEC		12790
-BAS          DEC		15788
-BBV          DEC		8469
-BDR          DEC		8606
-BFI          DEC		29171
-BHA          DEC		15712
-BHL          DEC		13015
-BLG          DEC		3094
-BMY          DEC		24298
-BNE          DEC		15498
-BRS          DEC		7414
-BTY          DEC		19201
-BUT          DEC		22342
-BVD          DEC		7187
+BH          DEC		1477
+BR          DEC		25665
+CK          DEC		20661
 
 BANK        10
-AJ          DEC		7219
-AZ          DEC		31042
-BH          DEC		14848
-BO          DEC		9171
-GG          DEC		28236
-GO          DEC		31148
-HE          DEC		28489
-JE          DEC		11230
-JP          DEC		10233
-KT          DEC		32291
-LY          DEC		16287
-MI          DEC		30519
-MS          DEC		13051
-MW          DEC		3964
-MZ          DEC		2979
-NA          DEC		18188
-OD          DEC		8788
-PO          DEC		9312
-RN          DEC		29613
-RY          DEC		11830
-SA          DEC		16159
-SI          DEC		10092
-SO          DEC		27465
-TT          DEC		15413
-XC          DEC		30237
-XH          DEC		27774
-YD          DEC		6357
-YQ          DEC		14411
-ZX          DEC		21724
-AAW          DEC		1507
-ACX          DEC		10432
-ADM          DEC		12764
-AEX          DEC		1674
-AFQ          DEC		8571
-AHA          DEC		29955
-AHD          DEC		17339
-AHQ          DEC		12757
-AIJ          DEC		26160
-AJF          DEC		20831
-AKN          DEC		2247
-ALK          DEC		29080
-ANL          DEC		12895
-AOZ          DEC		32723
-AQH          DEC		29494
-AVH          DEC		29658
-AWU          DEC		22751
-AYV          DEC		177
-BAK          DEC		21023
-BAV          DEC		13373
-BCM          DEC		4086
-BEB          DEC		9117
-BEP          DEC		27143
-BHI          DEC		8638
-BHS          DEC		19768
-BIU          DEC		7109
-BJZ          DEC		24657
-BLR          DEC		18315
-BLU          DEC		11548
-BND          DEC		10344
-BNQ          DEC		6430
-BOZ          DEC		4943
-BRT          DEC		17544
-BSL          DEC		31086
-BTF          DEC		28877
-BTM          DEC		23445
-BTS          DEC		30731
-BUI          DEC		582
+CT          DEC		26718
 
 BANK        11
-CT          DEC		4039
-EQ          DEC		25773
-FT          DEC		30898
-FZ          DEC		14118
-GB          DEC		13790
-GZ          DEC		24289
-HB          DEC		24441
-IM          DEC		16445
-LB          DEC		19992
-LV          DEC		18106
-MT          DEC		27638
-NH          DEC		15164
-NX          DEC		26105
-OP          DEC		20785
-QK          DEC		6271
-SE          DEC		11590
-TA          DEC		13393
-TU          DEC		28064
-UP          DEC		24171
-UZ          DEC		9111
-WX          DEC		29830
-ZK          DEC		20916
-ACA          DEC		22403
-ACH          DEC		14351
-ADN          DEC		6604
-AFT          DEC		31483
-AGF          DEC		9379
-AGI          DEC		3812
-AJP          DEC		15431
-AJU          DEC		7329
-AJX          DEC		30810
-AKE          DEC		14119
-AKK          DEC		1712
-ALF          DEC		3058
-APF          DEC		32169
-ARJ          DEC		18226
-AWA          DEC		29961
-AYQ          DEC		4341
-BBO          DEC		2165
-BBT          DEC		20019
-BFK          DEC		29551
-BGQ          DEC		20504
-BIJ          DEC		32326
-BJM          DEC		16183
-BLE          DEC		13368
-BLZ          DEC		25870
-BML          DEC		1935
-BNG          DEC		13532
-BNJ          DEC		28712
-BOL          DEC		25062
-BQC          DEC		8204
-BQE          DEC		384
-BQL          DEC		29744
-BRX          DEC		24770
-BSB          DEC		10740
-BSN          DEC		20918
+BB          DEC		1669
+BN          DEC		26817
+CE          DEC		23528
+CX          DEC		24838
+DA          DEC		20665
 
 BANK        12
-AF          DEC		285
-DP          DEC		14775
-GQ          DEC		21726
-HO          DEC		21108
-IG          DEC		26332
-KQ          DEC		30551
-LG          DEC		22614
-MH          DEC		9653
-NZ          DEC		20695
-PD          DEC		8607
-PZ          DEC		29813
-RS          DEC		8997
-SF          DEC		17231
-ST          DEC		23783
-TE          DEC		17320
-VL          DEC		7355
-WS          DEC		21621
-YG          DEC		10847
-ZB          DEC		9510
-ZL          DEC		9824
-AAB          DEC		3350
-ABH          DEC		21129
-ABP          DEC		17402
-AFY          DEC		23917
-AHR          DEC		16176
-AIR          DEC		15114
-AIW          DEC		31935
-AKJ          DEC		24067
-AKQ          DEC		11010
-ALR          DEC		18388
-AMS          DEC		14428
-ANQ          DEC		28208
-AOH          DEC		21179
-AOP          DEC		12579
-AOX          DEC		27705
-AQR          DEC		2915
-ARG          DEC		28517
-ARM          DEC		20727
-ATM          DEC		5350
-AUN          DEC		29016
-AVE          DEC		16074
-AXU          DEC		2043
-AYL          DEC		3875
-AZP          DEC		26747
-AZQ          DEC		23659
-BAD          DEC		7454
-BBQ          DEC		31647
-BBU          DEC		17405
-BGI          DEC		31420
-BJR          DEC		32600
-BKA          DEC		18147
-BKO          DEC		27249
-BLK          DEC		22769
-BMO          DEC		10526
-BOT          DEC		14540
-BPB          DEC		7278
-BRC          DEC		9152
-BRJ          DEC		1204
-BRY          DEC		29466
-BTI          DEC		409
-BUF          DEC		29376
-BUO          DEC		15368
-BVJ          DEC		5511
+BI          DEC		25314
+BJ          DEC		1668
+DJ          DEC		6269
 
 BANK        13
-AB          DEC		16577
-AV          DEC		20516
-BF          DEC		768
-BL          DEC		8029
-BN          DEC		18417
-CF          DEC		4676
-CR          DEC		30074
-DA          DEC		18138
-FN          DEC		26354
-GJ          DEC		21678
-HD          DEC		32617
-HR          DEC		14387
-HX          DEC		28734
-IS          DEC		20009
-JH          DEC		24639
-JW          DEC		3584
-KA          DEC		7115
-LI          DEC		23672
-NE          DEC		4847
-NV          DEC		15182
-OB          DEC		3114
-OV          DEC		21365
-RC          DEC		2723
-RE          DEC		17677
-RL          DEC		32362
-TF          DEC		28067
-TR          DEC		6580
-US          DEC		20240
-VG          DEC		13962
-VZ          DEC		14901
-WJ          DEC		9129
-WL          DEC		13339
-ZC          DEC		10812
-ZJ          DEC		6697
-ZO          DEC		29215
-ZU          DEC		30696
-AAT          DEC		9497
-AIA          DEC		20315
-AKV          DEC		30797
-ALV          DEC		29157
-ANB          DEC		13875
-ANY          DEC		5468
-AOF          DEC		7775
-APN          DEC		3217
-APR          DEC		8682
-AQO          DEC		20671
-AQY          DEC		15796
-ASO          DEC		7311
-ASW          DEC		28839
-AUD          DEC		23059
-AUW          DEC		22256
-AVD          DEC		25549
-AVM          DEC		21022
-AXL          DEC		25440
-AXO          DEC		29112
-AYG          DEC		25438
-BCG          DEC		28504
-BDW          DEC		21199
-BEF          DEC		24124
-BEU          DEC		17670
-BGE          DEC		17342
-BHJ          DEC		29366
-BIT          DEC		30292
-BJP          DEC		12039
-BLL          DEC		16229
-BLS          DEC		27432
-BNX          DEC		21600
-BNY          DEC		927
-BOU          DEC		1487
-BRN          DEC		16612
-BSR          DEC		32405
-BUH          DEC		13762
-BUP          DEC		26220
+CI          DEC		17127
 
 BANK        14
-BK          DEC		26251
-CI          DEC		18577
-DZ          DEC		24411
-FC          DEC		29946
-FW          DEC		7959
-FY          DEC		6763
-GR          DEC		32687
-HG          DEC		24804
-HH          DEC		31457
-HK          DEC		14326
-HL          DEC		12335
-HW          DEC		6884
-KD          DEC		21844
-KM          DEC		78
-LF          DEC		13675
-LU          DEC		25030
-ML          DEC		18373
-NS          DEC		3083
-PT          DEC		7492
-QS          DEC		5941
-RF          DEC		9702
-RJ          DEC		32098
-SL          DEC		19132
-XP          DEC		20819
-YM          DEC		30011
-ABZ          DEC		10890
-AGR          DEC		11544
-AIS          DEC		7198
-AIV          DEC		11517
-AME          DEC		1422
-AMW          DEC		26225
-ANU          DEC		22387
-AOI          DEC		19050
-AUA          DEC		12792
-AUH          DEC		27581
-AUQ          DEC		6848
-AUX          DEC		29608
-AVQ          DEC		2904
-AXZ          DEC		30097
-AYK          DEC		22563
-AYT          DEC		29076
-BAH          DEC		18345
-BBA          DEC		21278
-BCN          DEC		15467
-BEE          DEC		8038
-BFG          DEC		6207
-BFN          DEC		29244
-BGB          DEC		10960
-BHE          DEC		6515
-BIK          DEC		8945
-BIV          DEC		29104
-BOF          DEC		3981
+BD          DEC		26017
+BE          DEC		13777
+CB          DEC		2525
+CV          DEC		23062
+DB          DEC		13358
 
 BANK        15
-BJ          DEC		3804
-DK          DEC		28339
-EG          DEC		18475
-EN          DEC		26253
-ET          DEC		15041
-EV          DEC		21880
-GK          DEC		32430
-HF          DEC		26829
-IU          DEC		4036
-QA          DEC		2861
-RZ          DEC		28055
-TI          DEC		12627
-VH          DEC		3401
-VT          DEC		20896
-WQ          DEC		3534
-WT          DEC		1178
-AAP          DEC		13378
-AAQ          DEC		24650
-ABL          DEC		7901
-ABX          DEC		11186
-ADF          DEC		3595
-AEV          DEC		31388
-AFN          DEC		26252
-AFX          DEC		30512
-AGL          DEC		8870
-AGM          DEC		17233
-AHI          DEC		30648
-AJO          DEC		9428
-ANS          DEC		12854
-APL          DEC		25553
-ASK          DEC		1597
-ASR          DEC		28225
-ATL          DEC		15764
-ATW          DEC		29818
-AWQ          DEC		1323
-AZB          DEC		23709
-AZY          DEC		24765
-AZZ          DEC		15438
-BBK          DEC		26229
-BBS          DEC		15565
-BCP          DEC		22686
-BCQ          DEC		29992
-BCR          DEC		30081
-BDA          DEC		5085
-BDL          DEC		3578
-BDU          DEC		10011
-BEK          DEC		2896
-BEX          DEC		10967
-BEZ          DEC		14459
-BFU          DEC		17635
-BFY          DEC		3831
-BGY          DEC		4279
-BGZ          DEC		23876
-BHX          DEC		11829
-BIE          DEC		3639
-BIF          DEC		9466
-BIG          DEC		24764
-BIO          DEC		26639
-BJN          DEC		17357
-BJO          DEC		14597
-BJS          DEC		25590
-BOH          DEC		10619
-BON          DEC		20448
-BPM          DEC		240
-BQD          DEC		1256
-BQF          DEC		11
-BQI          DEC		4488
-BQN          DEC		13570
-BRU          DEC		17240
+CM          DEC		11316
+DF          DEC		23578
+DM          DEC		29792
 
 BANK        16
-BV          DEC		4644
-BZ          DEC		26932
-CN          DEC		10991
-DY          DEC		6106
-EH          DEC		23190
-GE          DEC		31614
-GI          DEC		26237
-GL          DEC		28412
-HI          DEC		16046
-HJ          DEC		30625
-IN          DEC		18083
-KU          DEC		13037
-NU          DEC		19572
-OR          DEC		12490
-QF          DEC		9000
-QQ          DEC		3716
-RQ          DEC		6468
-SY          DEC		31482
-TV          DEC		14737
-TX          DEC		31557
-WE          DEC		9900
-XD          DEC		9053
-YB          DEC		22568
-YL          DEC		18566
-YS          DEC		19379
-AAN          DEC		10419
-ACG          DEC		8661
-ACR          DEC		16285
-ACS          DEC		25881
-ADI          DEC		17128
-ADR          DEC		3777
-ADU          DEC		7012
-AFZ          DEC		2600
-AGD          DEC		28782
-AGJ          DEC		6982
-AHP          DEC		23347
-AJL          DEC		25150
-AJN          DEC		20379
-AKO          DEC		7229
-ALB          DEC		7587
-ALW          DEC		7013
-AMH          DEC		17891
-AMY          DEC		25565
-APH          DEC		198
-APX          DEC		16739
-AQP          DEC		12302
-ARI          DEC		30805
-ASU          DEC		2389
-ATU          DEC		22447
-ATX          DEC		22489
-AWY          DEC		15593
-AXD          DEC		12035
-AXG          DEC		3929
-AXH          DEC		4751
-AXM          DEC		15701
-AYP          DEC		2957
-AYS          DEC		27590
-BAY          DEC		29060
-BDZ          DEC		16178
-BIP          DEC		6792
-BIR          DEC		24829
-BIS          DEC		18975
-BKG          DEC		5775
-BLJ          DEC		29794
-BMW          DEC		6336
-BOQ          DEC		16940
-BPP          DEC		204
-BRQ          DEC		17195
-BSI          DEC		28177
-BSV          DEC		10746
-BTN          DEC		10880
-BVI          DEC		32641
-BVQ          DEC		1284
+AA          DEC		26701
+BK          DEC		30530
+BQ          DEC		1449
+CC          DEC		32673
 
 BANK        17
-BS          DEC		13516
-BW          DEC		9363
-CZ          DEC		27058
-DF          DEC		13788
-FO          DEC		11510
-GS          DEC		17122
-IE          DEC		24696
-JQ          DEC		12288
-MA          DEC		15359
-NC          DEC		7609
-NI          DEC		29135
-NL          DEC		12178
-NP          DEC		4024
-NQ          DEC		26940
-NW          DEC		11764
-PW          DEC		31215
-QI          DEC		17205
-QU          DEC		29391
-RA          DEC		18424
-RG          DEC		23972
-SH          DEC		4422
-UD          DEC		13265
-UN          DEC		5229
-VE          DEC		19565
-VK          DEC		4570
-VV          DEC		15153
-XY          DEC		32232
-YC          DEC		13629
-AAI          DEC		7503
-ACC          DEC		9642
-ACF          DEC		20856
-ADD          DEC		19908
-AGP          DEC		23092
-AIB          DEC		5997
-AIN          DEC		12486
-AIP          DEC		6066
-AIU          DEC		5170
-AKM          DEC		21935
-AOD          DEC		4665
-APB          DEC		3965
-AQG          DEC		8590
-AQN          DEC		14316
-AQW          DEC		5709
-ASI          DEC		4596
-AVR          DEC		6031
-AVT          DEC		10639
-AWO          DEC		9183
-AWT          DEC		5601
-AYD          DEC		7687
-BAC          DEC		32444
-BDT          DEC		5244
-BFM          DEC		24416
-BHZ          DEC		8442
-BKU          DEC		3132
-BLQ          DEC		9181
-BMI          DEC		29161
-BNC          DEC		22775
-BQA          DEC		12033
-BQH          DEC		12496
-BRO          DEC		20251
-BSF          DEC		14356
-BTR          DEC		15082
-BVL          DEC		17942
+AH          DEC		12496
+BS          DEC		23063
+BY          DEC		26714
+DD          DEC		3094
 
 BANK        20
-AH          DEC		20301
-BI          DEC		24576
-CB          DEC		21456
-DO          DEC		23477
-DS          DEC		28539
-EA          DEC		12278
-EZ          DEC		12134
-FG          DEC		27189
-HY          DEC		6114
-IL          DEC		25695
-JS          DEC		28848
-KJ          DEC		16757
-NM          DEC		6137
-OM          DEC		28148
-OO          DEC		13057
-PN          DEC		12899
-RR          DEC		5797
-SD          DEC		11348
-SW          DEC		5865
-UW          DEC		10961
-VJ          DEC		15063
-WM          DEC		28451
-YI          DEC		14117
-AAJ          DEC		25346
-ABU          DEC		25776
-ACO          DEC		8859
-ADW          DEC		19504
-AEN          DEC		27164
-AGE          DEC		25268
-AIC          DEC		23025
-AII          DEC		18378
-AIY          DEC		10302
-AJB          DEC		327
-AJY          DEC		7843
-AMF          DEC		21618
-AMM          DEC		27809
-AOM          DEC		8730
-APO          DEC		32224
-AQX          DEC		25555
-ARB          DEC		25009
-ASB          DEC		12037
-ATO          DEC		24915
-AUC          DEC		21094
-AUJ          DEC		29457
-AUU          DEC		22843
-AVW          DEC		7914
-AWK          DEC		13211
-AXA          DEC		502
-AXE          DEC		18048
-AXY          DEC		14985
-AZI          DEC		25070
-AZN          DEC		5007
-BBB          DEC		29983
-BBR          DEC		13956
-BCF          DEC		7880
-BCK          DEC		19200
-BDD          DEC		7831
-BEJ          DEC		24093
-BFA          DEC		21546
-BFB          DEC		22146
-BGF          DEC		25780
-BGP          DEC		4021
-BIB          DEC		15855
-BIC          DEC		32456
-BIM          DEC		31891
-BIN          DEC		16103
-BJE          DEC		15231
-BJI          DEC		20341
-BKN          DEC		8568
-BLH          DEC		7727
-BLT          DEC		14548
-BLV          DEC		3644
-BOR          DEC		9375
-BPJ          DEC		14947
-BPQ          DEC		27745
-BQV          DEC		12849
-BSA          DEC		15185
-BTE          DEC		22912
-BTP          DEC		7976
+CR          DEC		8565
 
 BANK        21
-BM          DEC		8753
-BP          DEC		2444
-CG          DEC		17553
-DX          DEC		29404
-EP          DEC		19866
-ER          DEC		27974
-GU          DEC		1638
-MM          DEC		9103
-MP          DEC		11824
-OC          DEC		27455
-OL          DEC		936
-PV          DEC		8781
-QM          DEC		27254
-QR          DEC		6362
-TG          DEC		5200
-TJ          DEC		22203
-TQ          DEC		3347
-UC          DEC		6205
-UU          DEC		27194
-VP          DEC		17315
-WC          DEC		20650
-XT          DEC		16524
-YA          DEC		3549
-YN          DEC		11849
-ZI          DEC		7521
-ABI          DEC		16745
-ADK          DEC		26801
-AED          DEC		20985
-AFE          DEC		9937
-AGB          DEC		6174
-AHE          DEC		1233
-AHS          DEC		31880
-AIQ          DEC		17190
-AJD          DEC		18969
-ALC          DEC		2759
-ALX          DEC		1610
-ARA          DEC		6635
-ASY          DEC		19808
-ATI          DEC		27271
-AVG          DEC		369
-AVX          DEC		2539
-AXX          DEC		27151
-AYX          DEC		27919
-BET          DEC		1401
-BFT          DEC		19799
-BFX          DEC		27394
-BFZ          DEC		6997
-BGV          DEC		28340
-BGX          DEC		15422
-BHR          DEC		1277
-BKR          DEC		17155
-BKS          DEC		24791
-BLY          DEC		30078
-BMQ          DEC		15734
-BMR          DEC		26697
-BMZ          DEC		5423
-BOG          DEC		16627
-BOJ          DEC		3900
-BPH          DEC		522
-BPO          DEC		112
-BQG          DEC		12761
-BRP          DEC		23795
-BSQ          DEC		15663
-BUY          DEC		2400
+DO          DEC		23819
 
 BANK        22
-AM          DEC		256
-AQ          DEC		13110
-BR          DEC		5698
-CK          DEC		9289
-EO          DEC		11724
-FV          DEC		27379
-GC          DEC		27227
-GP          DEC		31613
-IT          DEC		24683
-MG          DEC		20286
-NG          DEC		29208
-PI          DEC		2051
-PL          DEC		26586
-QY          DEC		14987
-TP          DEC		31632
-UE          DEC		27172
-UQ          DEC		21007
-XG          DEC		20157
-XV          DEC		5173
-YF          DEC		24437
-YY          DEC		29346
-ZA          DEC		11817
-ZP          DEC		9010
-AAH          DEC		13866
-ABS          DEC		8842
-ABT          DEC		16840
-ACN          DEC		24135
-ADJ          DEC		16902
-ADL          DEC		20708
-ADS          DEC		11889
-AGH          DEC		7918
-AHB          DEC		7190
-AIF          DEC		15366
-AKL          DEC		32168
-ALG          DEC		28079
-ALY          DEC		30616
-ANI          DEC		19369
-AOE          DEC		2634
-AQC          DEC		29566
-ARL          DEC		3468
-ASG          DEC		27192
-ASN          DEC		5080
-ATA          DEC		23515
-ATF          DEC		4951
-ATZ          DEC		9311
-AUF          DEC		9942
-AVF          DEC		379
-BAT          DEC		583
-BBC          DEC		13712
-BDS          DEC		25807
-BFF          DEC		25587
-BGN          DEC		25462
-BIX          DEC		7742
-BMA          DEC		7055
-BNH          DEC		15640
-BRD          DEC		30343
-BRL          DEC		28902
-BRZ          DEC		5851
-BTH          DEC		8176
-BTQ          DEC		9025
-BUW          DEC		997
+AB          DEC		13359
+AC          DEC		23088
+BT          DEC		16909
+CN          DEC		6042
 
 BANK        23
-AO          DEC		4096
-AW          DEC		7
-AY          DEC		26670
-CO          DEC		24503
-DQ          DEC		21174
-FI          DEC		15785
-FJ          DEC		635
-JC          DEC		11038
-ME          DEC		28531
-MO          DEC		6268
-MY          DEC		26011
-PH          DEC		24378
-SX          DEC		11877
-TL          DEC		26907
-UA          DEC		21135
-UX          DEC		9678
-WA          DEC		27567
-WD          DEC		6981
-WF          DEC		6889
-XA          DEC		29799
-YV          DEC		3748
-ZW          DEC		25763
-ACT          DEC		1754
-ADC          DEC		27718
-AEG          DEC		19609
-AFR          DEC		32700
-AGW          DEC		13415
-AHG          DEC		20787
-ALU          DEC		23138
-AML          DEC		31125
-AOB          DEC		29223
-AOT          DEC		23689
-APA          DEC		16362
-APJ          DEC		21630
-AQZ          DEC		6382
-ARX          DEC		5837
-ARZ          DEC		17333
-AUZ          DEC		710
-AWV          DEC		28533
-AXF          DEC		31657
-AXV          DEC		1237
-AYE          DEC		11489
-AYM          DEC		30224
-BCB          DEC		5976
-BED          DEC		22851
-BFO          DEC		14168
-BIA          DEC		24796
-BLF          DEC		28181
-BLW          DEC		8646
-BNF          DEC		3323
-BOW          DEC		15603
-BOX          DEC		30171
-BPS          DEC		3722
-BSW          DEC		16684
-BTT          DEC		16698
-BTW          DEC		3072
-BUU          DEC		2834
+BF          DEC		16488
+CO          DEC		2909
+CQ          DEC		17123
+DC          DEC		6365
+DE          DEC		17144
 
 BANK        24
-AR          DEC		6233
-EJ          DEC		18955
-FU          DEC		11615
-HA          DEC		24481
-IV          DEC		30876
-JT          DEC		4496
-LC          DEC		18700
-LE          DEC		18460
-LX          DEC		14845
-MF          DEC		7964
-NR          DEC		22421
-OZ          DEC		24042
-PR          DEC		8983
-SN          DEC		31107
-SR          DEC		9021
-TO          DEC		14074
-UM          DEC		3912
-VS          DEC		9670
-WZ          DEC		4756
-XM          DEC		27196
-YT          DEC		3273
-YU          DEC		31589
-ADA          DEC		23102
-ADY          DEC		14806
-ADZ          DEC		20872
-AEZ          DEC		2200
-AFI          DEC		17000
-AFO          DEC		4717
-AHM          DEC		5204
-AIX          DEC		2243
-AJK          DEC		675
-AKT          DEC		1757
-ALA          DEC		10983
-ALD          DEC		4669
-ALO          DEC		30033
-AMX          DEC		3185
-ANM          DEC		15062
-ATG          DEC		17251
-ATR          DEC		30072
-AUM          DEC		6965
-AUT          DEC		20711
-AVK          DEC		28348
-AVP          DEC		30545
-AWJ          DEC		3731
-AWN          DEC		22018
-AXB          DEC		2175
-AZE          DEC		22850
-AZG          DEC		30396
-BBP          DEC		16552
-BEY          DEC		17097
-BFD          DEC		5622
-BJD          DEC		26796
-BLA          DEC		6386
-BLX          DEC		28904
-BMJ          DEC		24817
-BOE          DEC		26622
-BPK          DEC		16702
-BQB          DEC		2087
-BRA          DEC		194
-BUN          DEC		31752
-BVN          DEC		20961
+AE          DEC		26245
+BP          DEC		3037
 
 BANK        25
-AX          DEC		25864
-BE          DEC		2512
-DL          DEC		11911
-HN          DEC		27751
-IO          DEC		15374
-JM          DEC		16
-JY          DEC		3116
-KH          DEC		1502
-KO          DEC		3
-LP          DEC		11685
-OX          DEC		23507
-PG          DEC		30450
-QG          DEC		27860
-RT          DEC		31995
-UI          DEC		31003
-VY          DEC		15466
-XF          DEC		20890
-XK          DEC		6801
-XL          DEC		3319
-YO          DEC		15530
-ZT          DEC		21943
-AAF          DEC		1371
-AAG          DEC		16193
-ABK          DEC		16226
-ABR          DEC		4251
-ACJ          DEC		4528
-ADE          DEC		12941
-ADP          DEC		9069
-AFA          DEC		2375
-AFK          DEC		26761
-AKP          DEC		27243
-AMB          DEC		16882
-APM          DEC		16090
-AQS          DEC		28325
-ARD          DEC		30008
-ARF          DEC		30962
-ASS          DEC		12508
-AUG          DEC		1635
-AUK          DEC		13795
-AUR          DEC		27768
-AVY          DEC		25521
-AYN          DEC		32691
-BBJ          DEC		8355
-BCO          DEC		25201
-BDI          DEC		27178
-BDV          DEC		10734
-BDX          DEC		5054
-BEA          DEC		1021
-BEL          DEC		16340
-BFH          DEC		27188
-BFW          DEC		27181
-BHP          DEC		13728
-BII          DEC		32412
-BJL          DEC		31091
-BKJ          DEC		20709
-BKW          DEC		24079
-BNV          DEC		7711
-BPU          DEC		18432
-BQZ          DEC		19936
-BRG          DEC		8754
-BSC          DEC		21808
+AL          DEC		3021
+CA          DEC		8538
+CW          DEC		3339
+DG          DEC		2768
 
 BANK        26
-DR          DEC		15197
-FL          DEC		22349
-GF          DEC		13358
-HT          DEC		31703
-JX          DEC		6555
-KL          DEC		130
-QP          DEC		21848
-SB          DEC		12538
-TB          DEC		11578
-TC          DEC		6957
-TN          DEC		21155
-VF          DEC		3194
-ZS          DEC		10448
-AAZ          DEC		22602
-ACD          DEC		18258
-AFU          DEC		8846
-AKI          DEC		29254
-AKS          DEC		8037
-ALH          DEC		21017
-ALS          DEC		32148
-AMN          DEC		18717
-AOA          DEC		12344
-APQ          DEC		7129
-AQT          DEC		5919
-ARS          DEC		18439
-ARU          DEC		1073
-ASF          DEC		7485
-AVN          DEC		24075
-AWD          DEC		32470
-AWM          DEC		20525
-AXT          DEC		32609
-AYZ          DEC		15523
-AZS          DEC		7541
-BBH          DEC		3891
-BBN          DEC		14535
-BCH          DEC		7823
-BCZ          DEC		7731
-BDE          DEC		20338
-BFL          DEC		22849
-BFQ          DEC		19618
-BFR          DEC		22413
-BGJ          DEC		7446
-BGM          DEC		22415
-BGT          DEC		32449
-BJH          DEC		31822
-BLI          DEC		9073
-BMU          DEC		15583
-BNT          DEC		5180
-BNU          DEC		3186
-BOK          DEC		8024
-BQJ          DEC		16655
-BQO          DEC		368
-BQR          DEC		8832
-BQS          DEC		23084
-BRH          DEC		9798
-BRI          DEC		14630
-BRW          DEC		12708
-BSH          DEC		25976
-BTK          DEC		26414
-BVR          DEC		6144
+AP          DEC		13520
+CP          DEC		3078
+DI          DEC		11572
 
 BANK        27
-BU          DEC		7321
-BY          DEC		21061
-EB          DEC		24701
-EL          DEC		11213
-FH          DEC		23804
-HP          DEC		14065
-IY          DEC		18904
-JF          DEC		960
-JL          DEC		16704
-JN          DEC		142
-JR          DEC		5274
-KV          DEC		19236
-KZ          DEC		3418
-OW          DEC		4093
-QE          DEC		10447
-RM          DEC		6684
-SJ          DEC		2602
-SP          DEC		3235
-SU          DEC		5301
-VC          DEC		17237
-XN          DEC		16488
-XS          DEC		6092
-ABG          DEC		654
-ABQ          DEC		2211
-AEJ          DEC		10690
-AEL          DEC		30036
-AFP          DEC		5772
-AGQ          DEC		19892
-AGV          DEC		26819
-AHK          DEC		23839
-AJS          DEC		29045
-ALQ          DEC		10515
-AMP          DEC		12057
-AOK          DEC		3313
-AOU          DEC		30970
-APW          DEC		727
-ARQ          DEC		31656
-ATH          DEC		8765
-AVB          DEC		21753
-AXQ          DEC		14998
-AYA          DEC		26871
-AYY          DEC		15152
-AZM          DEC		23385
-BAF          DEC		21679
-BBE          DEC		6638
-BBM          DEC		29984
-BEV          DEC		30972
-BFV          DEC		4925
-BGC          DEC		15482
-BGW          DEC		9229
-BJT          DEC		9307
-BKI          DEC		10156
-BKP          DEC		31853
-BLD          DEC		23035
-BLN          DEC		25299
-BMH          DEC		8741
-BMN          DEC		17944
-BMS          DEC		23674
-BNA          DEC		206
-BOS          DEC		32736
-BQX          DEC		7394
-BUL          DEC		48
-BUZ          DEC		4129
-BVB          DEC		2048
+BU          DEC		3110
+DK          DEC		12320
 
 BANK        30
-AE          DEC		64
-AP          DEC		7168
-DU          DEC		15293
-DV          DEC		28399
-ED          DEC		23463
-EY          DEC		11123
-FE          DEC		31832
-FK          DEC		10410
-GM          DEC		27005
-NY          DEC		13068
-OE          DEC		13857
-QC          DEC		32306
-RP          DEC		22178
-SK          DEC		25862
-SQ          DEC		22965
-TM          DEC		8838
-AAU          DEC		26329
-ACI          DEC		12146
-ADH          DEC		24924
-ADQ          DEC		17571
-AFD          DEC		26844
-AFV          DEC		20971
-AGK          DEC		21019
-AHV          DEC		10620
-AJV          DEC		29015
-AJW          DEC		25649
-AKZ          DEC		4877
-ALE          DEC		10873
-ANG          DEC		15847
-ANT          DEC		14452
-ANV          DEC		2643
-ANX          DEC		20510
-AON          DEC		18426
-AQK          DEC		30544
-AQU          DEC		19948
-ASA          DEC		6153
-ATB          DEC		11418
-AWL          DEC		30700
-AWR          DEC		19998
-AWZ          DEC		11097
-AZK          DEC		24071
-AZR          DEC		25348
-BBY          DEC		28323
-BCL          DEC		12769
-BCU          DEC		18330
-BEC          DEC		7743
-BHB          DEC		26173
-BME          DEC		7448
-BMG          DEC		11229
-BMV          DEC		10208
-BNZ          DEC		17059
-BOA          DEC		2502
-BOV          DEC		6088
-BPG          DEC		19203
-BTC          DEC		25474
-BVA          DEC		28696
-BVS          DEC		16443
+AJ          DEC		24715
+BC          DEC		21314
+BG          DEC		25352
+BX          DEC		20667
+CS          DEC		20656
 
 BANK        31
-CE          DEC		25747
-DD          DEC		18859
-DE          DEC		15804
-DM          DEC		15795
-FM          DEC		29545
-GV          DEC		19235
-GX          DEC		24299
-ID          DEC		13741
-II          DEC		27717
-JZ          DEC		29415
-KE          DEC		1152
-LS          DEC		8822
-MB          DEC		2510
-MR          DEC		27527
-MV          DEC		32753
-NO          DEC		26478
-QW          DEC		17951
-RB          DEC		13138
-SS          DEC		4330
-UF          DEC		13626
-VN          DEC		13786
-WB          DEC		15115
-WO          DEC		13597
-XE          DEC		4947
-YK          DEC		977
-ZQ          DEC		3490
-ACV          DEC		2882
-AEM          DEC		12625
-AGX          DEC		7227
-AHN          DEC		19326
-AHZ          DEC		32092
-AID          DEC		7020
-AIO          DEC		9163
-AJC          DEC		22653
-ALZ          DEC		23928
-AMO          DEC		20991
-AMT          DEC		7104
-ANH          DEC		18781
-ANZ          DEC		24020
-AOR          DEC		12672
-APG          DEC		15791
-AQE          DEC		14729
-ARC          DEC		16926
-ARK          DEC		16222
-ASD          DEC		23127
-ASH          DEC		27395
-AVO          DEC		3517
-BAQ          DEC		10675
-BAX          DEC		11204
-BEO          DEC		11581
-BGS          DEC		12928
-BGU          DEC		3193
-BHH          DEC		24537
-BJK          DEC		232
-BJU          DEC		26884
-BKL          DEC		6260
-BLC          DEC		19655
-BNR          DEC		7326
-BOD          DEC		29305
-BPD          DEC		16939
-BQM          DEC		720
-BQP          DEC		8251
-BSD          DEC		17896
-BSK          DEC		18362
-BTB          DEC		1140
-BUQ          DEC		12467
-BVK          DEC		3277
+AT          DEC		3005
+BV          DEC		17091
+BW          DEC		8563
+CZ          DEC		8545
 
 BANK        32
-CA          DEC		19607
-CL          DEC		26959
-DC          DEC		31453
-DW          DEC		23251
-FF          DEC		18940
-FR          DEC		13054
-HC          DEC		24401
-HQ          DEC		13616
-IJ          DEC		3836
-KG          DEC		8474
-KR          DEC		28402
-LL          DEC		7734
-LO          DEC		14417
-MU          DEC		7860
-NJ          DEC		32367
-NN          DEC		1759
-ON          DEC		22013
-OS          DEC		12185
-OU          DEC		8977
-QZ          DEC		19786
-TK          DEC		4050
-VM          DEC		27244
-ABC          DEC		3126
-ABM          DEC		22728
-ABO          DEC		20855
-ADT          DEC		21602
-ADX          DEC		21767
-AEK          DEC		24006
-AEQ          DEC		18107
-AEU          DEC		16872
-AFC          DEC		23688
-AFJ          DEC		24134
-AFM          DEC		7624
-AFW          DEC		14192
-AGS          DEC		22148
-AIG          DEC		7233
-ALM          DEC		25975
-AMI          DEC		29502
-AMZ          DEC		9105
-APV          DEC		14804
-AVZ          DEC		18398
-AWE          DEC		3085
-AYH          DEC		909
-AYI          DEC		24823
-AZC          DEC		30921
-BBL          DEC		23069
-BCT          DEC		1145
-BHC          DEC		16308
-BHF          DEC		28321
-BHN          DEC		27515
-BHO          DEC		21567
-BJC          DEC		16177
-BJF          DEC		32147
-BJG          DEC		19184
-BKC          DEC		18952
-BKH          DEC		11550
-BKK          DEC		11370
-BKV          DEC		3910
-BNK          DEC		25265
-BNW          DEC		13169
-BOI          DEC		26098
-BOO          DEC		7290
-BRK          DEC		25920
-BSJ          DEC		2436
-BSZ          DEC		2560
-BTU          DEC		96
-BTZ          DEC		271
-BUR          DEC		19356
-BUX          DEC		20
-BVG          DEC		408
+AV          DEC		834
+BA          DEC		6370
 
 BANK        33
-CC          DEC		11848
-DT          DEC		11527
-GY          DEC		24235
-JI          DEC		30851
-MX          DEC		19429
-QJ          DEC		4554
-TD          DEC		27485
-TH          DEC		27252
-VU          DEC		12090
-WH          DEC		26495
-WI          DEC		16093
-WW          DEC		28357
-XQ          DEC		10657
-XX          DEC		22158
-XZ          DEC		12093
-YE          DEC		6060
-ZD          DEC		19446
-AAR          DEC		7697
-ABJ          DEC		9456
-ABN          DEC		19205
-ABW          DEC		7264
-ACL          DEC		5653
-AEB          DEC		17235
-AEH          DEC		3928
-AEP          DEC		1363
-AFG          DEC		10878
-AHT          DEC		15989
-AHU          DEC		15656
-AKY          DEC		22204
-ALT          DEC		6455
-ANK          DEC		23400
-ANO          DEC		12480
-APY          DEC		2365
-AQJ          DEC		3393
-ARO          DEC		28417
-ART          DEC		23419
-AST          DEC		3957
-ATJ          DEC		22027
-ATN          DEC		11179
-ATT          DEC		8686
-AUY          DEC		31663
-AVS          DEC		12535
-AWC          DEC		246
-AWF          DEC		29048
-AWS          DEC		29989
-AYB          DEC		8623
-AYO          DEC		17246
-AZF          DEC		28262
-BAE          DEC		17531
-BAR          DEC		20072
-BCS          DEC		6388
-BDM          DEC		30748
-BEM          DEC		17879
-BGL          DEC		21754
-BHG          DEC		7856
-BHM          DEC		18402
-BHY          DEC		29661
-BJQ          DEC		18080
-BKY          DEC		29520
-BMB          DEC		8971
-BPN          DEC		6528
-BQY          DEC		28111
-BRR          DEC		12760
-BSP          DEC		23329
-BTD          DEC		15671
-BTG          DEC		16384
-BVE          DEC		28927
+BM          DEC		20877
+CU          DEC		29793
 
 BANK        34
-AC          DEC		640
-AU          DEC		29354
-BB          DEC		22359
-DH          DEC		9946
-FQ          DEC		30387
-HS          DEC		28475
-HV          DEC		32374
-IQ          DEC		23630
-KB          DEC		13777
-KN          DEC		16408
-LJ          DEC		30935
-LN          DEC		23405
-MD          DEC		8319
-MJ          DEC		8136
-ND          DEC		23679
-QV          DEC		9290
-SG          DEC		31732
-UR          DEC		13914
-WK          DEC		17108
-WN          DEC		23510
-WV          DEC		14571
-YW          DEC		28873
-ZF          DEC		14680
-ZZ          DEC		11833
-AAL          DEC		19118
-ABE          DEC		19619
-ACU          DEC		4364
-AEA          DEC		28082
-AFL          DEC		16564
-AGY          DEC		6349
-AIT          DEC		25339
-AJE          DEC		5758
-AKF          DEC		21986
-AMD          DEC		16214
-AMJ          DEC		18925
-AOJ          DEC		19995
-AOL          DEC		25839
-AOV          DEC		32458
-AOW          DEC		3231
-APE          DEC		26128
-APS          DEC		27737
-AQB          DEC		20824
-AQD          DEC		27912
-AQF          DEC		21720
-ARN          DEC		10400
-ARY          DEC		14005
-ASP          DEC		4827
-ASQ          DEC		5177
-ATK          DEC		9191
-ATS          DEC		22042
-AUB          DEC		5691
-AVJ          DEC		27238
-AZW          DEC		20402
-AZX          DEC		17372
-BAP          DEC		5909
-BAZ          DEC		25073
-BCD          DEC		17845
-BCE          DEC		15418
-BEI          DEC		20542
-BFJ          DEC		12737
-BGG          DEC		15470
-BJA          DEC		32614
-BKF          DEC		31400
-BKQ          DEC		1978
-BLO          DEC		17314
-BNL          DEC		28542
-BQT          DEC		31912
-BSG          DEC		10788
-BSU          DEC		6903
-BTO          DEC		20480
-BUB          DEC		8192
-BUE          DEC		24735
-BUS          DEC		28461
-BVM          DEC		14707
-BVP          DEC		21509
-BVT          DEC		20592
+AN          DEC		838
+BL          DEC		31809
+CL          DEC		4200
 
 BANK        35
-BX          DEC		9419
-CX          DEC		22417
-FP          DEC		21273
-GN          DEC		23706
-HZ          DEC		12590
-IC          DEC		23276
-IH          DEC		17773
-IK          DEC		9965
-IZ          DEC		31487
-KC          DEC		17092
-KP          DEC		23481
-NK          DEC		11617
-NT          DEC		12167
-PS          DEC		22138
-QN          DEC		13642
-RH          DEC		26427
-RW          DEC		17971
-SC          DEC		11811
-SZ          DEC		1315
-UB          DEC		7322
-UL          DEC		22252
-VA          DEC		30346
-XR          DEC		22381
-AAK          DEC		21219
-AAO          DEC		11171
-ADG          DEC		8733
-AIZ          DEC		11001
-AJM          DEC		25868
-AMC          DEC		24005
-ANJ          DEC		3897
-AQA          DEC		24501
-AQQ          DEC		24127
-AQV          DEC		20725
-ASC          DEC		19224
-AUS          DEC		27628
-AWB          DEC		15760
-AWP          DEC		6886
-AXS          DEC		13432
-AYC          DEC		12666
-AZT          DEC		26767
-BBX          DEC		7139
-BBZ          DEC		16224
-BCC          DEC		8702
-BDK          DEC		7850
-BFP          DEC		8698
-BJV          DEC		25912
-BKB          DEC		17661
-BPI          DEC		16385
-BPL          DEC		4085
-BPV          DEC		3988
-BQK          DEC		24209
-BRE          DEC		24788
-BSY          DEC		7683
-BTA          DEC		128
-BTL          DEC		12596
-BVH          DEC		6
+AI          DEC		22888
+AK          DEC		1050
+AM          DEC		3161
+DN          DEC		31255
 
 BANK        36
-AA          DEC		10277
-AK          DEC		8224
-AT          DEC		9878
-BD          DEC		4
-CJ          DEC		4900
-CM          DEC		29777
-DN          DEC		13742
-ES          DEC		18173
-FA          DEC		23023
-FS          DEC		21145
-GW          DEC		20147
-IA          DEC		8882
-IW          DEC		17481
-OF          DEC		23918
-OI          DEC		19314
-PB          DEC		1513
-PX          DEC		32396
-QT          DEC		4891
-TS          DEC		10346
-TZ          DEC		9045
-UH          DEC		20923
-XW          DEC		5786
-ZH          DEC		14576
-ZN          DEC		14090
-AAX          DEC		1733
-AAY          DEC		16325
-ADB          DEC		19989
-ADV          DEC		20692
-AFF          DEC		17504
-AGO          DEC		18227
-AIH          DEC		29523
-AKC          DEC		2381
-AMU          DEC		12763
-AND          DEC		10894
-ANR          DEC		29304
-AOO          DEC		31592
-AQI          DEC		24123
-ASX          DEC		23884
-ATP          DEC		13959
-AXJ          DEC		23610
-AXW          DEC		28984
-BAL          DEC		29802
-BBF          DEC		20494
-BBW          DEC		15390
-BCX          DEC		32078
-BEN          DEC		18403
-BGO          DEC		15828
-BHT          DEC		31197
-BIH          DEC		15391
-BIY          DEC		9934
-BKT          DEC		16867
-BKZ          DEC		5241
-BMD          DEC		1276
-BOC          DEC		21596
-BPA          DEC		32752
-BQQ          DEC		1764
-BUA          DEC		197
+AG          DEC		31649
+CG          DEC		6106
+CY          DEC		17143
 
 BANK        37
-AD          DEC		32
-AI          DEC		30304
-AL          DEC		0
-CH          DEC		29260
-CP          DEC		14239
-CW          DEC		18541
-EC          DEC		22019
-EE          DEC		6545
-EM          DEC		30235
-FD          DEC		20754
-GA          DEC		28522
-HM          DEC		32745
-IB          DEC		28196
-JD          DEC		21823
-KW          DEC		19767
-LT          DEC		30437
-LZ          DEC		24014
-OH          DEC		10217
-PC          DEC		13670
-PJ          DEC		30595
-UG          DEC		5347
-UT          DEC		28620
-YH          DEC		19455
-AAC          DEC		24794
-ACP          DEC		21441
-ACQ          DEC		16744
-ACY          DEC		14029
-AEI          DEC		5774
-AFS          DEC		22478
-AGZ          DEC		6824
-AHL          DEC		9434
-AHO          DEC		11482
-AJQ          DEC		28065
-AKG          DEC		6243
-ALI          DEC		6111
-ALN          DEC		573
-AMG          DEC		7124
-ANA          DEC		29074
-ANE          DEC		12282
-AOS          DEC		7979
-AOY          DEC		16382
-APP          DEC		9788
-APT          DEC		18310
-ARH          DEC		16632
-ARR          DEC		20972
-ASE          DEC		17763
-ATV          DEC		4504
-AUE          DEC		3997
-AUO          DEC		26351
-AWX          DEC		16500
-AXI          DEC		10347
-AYJ          DEC		10654
-AZV          DEC		15484
-BAB          DEC		28322
-BAG          DEC		11295
-BAI          DEC		10075
-BAW          DEC		26202
-BBI          DEC		28342
-BDB          DEC		8349
-BDC          DEC		12374
-BEQ          DEC		18128
-BER          DEC		3188
-BGH          DEC		24227
-BGK          DEC		28799
-BID          DEC		32120
-BJB          DEC		4668
-BJW          DEC		11839
-BJY          DEC		4327
-BKM          DEC		15801
-BLM          DEC		299
-BPR          DEC		13207
-BTV          DEC		10048
-BUC          DEC		16386
-BUG          DEC		82
+AD          DEC		7435
+BZ          DEC		19331

@@ -1,4 +1,3 @@
-FBANK       EQUALS      4
             SETLOC    4000        # NOOP all the interupts
             TCF       LAUNCH
             NOOP
