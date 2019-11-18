@@ -1,5 +1,8 @@
 """
-Build a challenge
+This script will generate a distances.txt file from the STAR_TABLES that correlates to the
+given flag.
+
+Author: knif3
 """
 import random
 import string
@@ -21,7 +24,6 @@ def LoadStars(fn="STAR_TABLES.agc"):
         if star not in star_dict:
             star_dict[star] = []
 
-        #num = float(num) * 10**2
         num = float(num)
         star_dict[star].append(num)
     return star_dict
@@ -82,6 +84,4 @@ def main():
             stars = random.choice(distances[ord(char)])
             fil.write("Star {} => Star {}\n".format(*stars))
     print("Distances written to 'distances.txt'")
-
-
 main()

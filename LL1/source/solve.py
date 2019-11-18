@@ -44,9 +44,7 @@ def main():
             star2 = line[4]
 
             distance = point_distance(stars[star1], stars[star2])
-            print(distance)
             distance = distance*100
-            print(distance)
             print("Distance between {} and {} = {}".format(star1, star2, distance))
             flag += chr(int(distance))
 

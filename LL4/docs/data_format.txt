@@ -1,0 +1,39 @@
+Data format:
+    00at cccc 01cc cddd 10dd dddd 11dd dddd
+
+    a - Abort bit - When the server detects malicious activity, it sets the abort bit
+        and locks all remote spacecraft controls until a reset is given.
+
+        Once the abort bit is set, all client msgs will be replied with the following packet
+
+        0011 cccc 01cc cddd 10dd dddd 11dd dddd
+        
+        Where C is the channel that the client sent to
+        and D is the abort code
+
+    On server msgs:
+    t - change bit - 1 if the data has changed from the last time it was queried
+    On client msgs: ?? < This idea might such
+    t - poll bit - 1 if we are setting the data, 0 if we are polling the data
+
+
+
+Satellite Constants
+    Name
+    Mass
+    Model #    
+
+Satellite State
+    Time
+    Thruster Power
+    Fuel
+    Altitude
+    Velocity
+
+Orientation
+    Pitch   Y
+    Yaw     Z
+    Roll    X
+
+Client Values
+    Time

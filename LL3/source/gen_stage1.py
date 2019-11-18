@@ -1,5 +1,6 @@
 """Encode a binary into the core-rope and print it out
 """
+import struct
 import random
 from jinja2 import Template, Environment, FileSystemLoader
 
