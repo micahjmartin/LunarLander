@@ -17,3 +17,6 @@ Good luck,
 - Houston
 
 ## File: LM.bin LM.symtab
+
+
+This one actually required them to reverse the ASM of the AGC. I was going to embed a url or file or something into the code but that seemed like a lot. I made it super simple instead where it just writes characters...
